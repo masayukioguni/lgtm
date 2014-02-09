@@ -89,3 +89,17 @@ body {
         border-bottom: 0;
     }
 }
+
+
+.drop-box {
+    font-size: 18pt;
+    background: #F8F8F8;
+    border: 5px dashed #DDD;
+    height: 65px; 
+    text-align: center;
+}
+
+.drop-box.dragover {
+    border: 5px dashed blue;
+}
+

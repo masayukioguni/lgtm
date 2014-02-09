@@ -4,7 +4,8 @@ angular.module('lgtmApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  'angularFileUpload'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
