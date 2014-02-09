@@ -25,6 +25,10 @@ angular.module('lgtmApp', [
         controller: 'SettingsCtrl',
         authenticate: true
       })
+      .when('/image', {
+        templateUrl: 'partials/image',
+        controller: 'ImageCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
