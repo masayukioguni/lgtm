@@ -1,19 +1,16 @@
 'use strict';
 
 angular.module('lgtmApp')
-  .controller('ImageCtrl', function ($scope, $http,$upload) {
-    $http.get('/api/awesomeThings').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-    });
-    $http.get('/api/images').success(function(images) {
-      $scope.images = images;
-    });
-            $scope.onFileSelect = function($files) {
+    .controller('ImageCtrl', function($scope, $http, $upload) {
+        $http.get('/api/images').success(function(images) {
+            $scope.images = images;
+        });
+
+        $scope.onFileSelect = function($files) {
             console.log($files);
             //$files: an array of files selected, each file has name, size, and type.
             for (var i = 0; i < $files.length; i++) {
                 var file = $files[i];
-                console.log(file);
                 $scope.upload = $upload.upload({
                     url: '/api/images', //upload.php script, node.js route, or servlet url
                     method: 'POST',
@@ -40,4 +37,4 @@ angular.module('lgtmApp')
                 });
             }
         };
-  });
+    });
