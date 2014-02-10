@@ -19,6 +19,8 @@ module.exports = function(config) {
             'app/bower_components/angular-route/angular-route.js',
             'app/bower_components/ng-file-upload/angular-file-upload.js',
             'app/bower_components/ng-file-upload/angular-file-shim.js',
+            'app/bower_components/angular-deckgrid/angular-deckgrid.js',
+
             'app/scripts/*.js',
             'app/scripts/**/*.js',
             'test/mock/**/*.js',

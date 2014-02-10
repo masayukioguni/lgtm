@@ -16,9 +16,13 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
+    <link rel="stylesheet" href="styles/deckgrid.css">
+
     <link rel="stylesheet" href="styles/main.css">
+    
     <!-- endbuild -->
   </head>
+
   <body ng-app="lgtmApp">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -45,14 +49,17 @@
 
     <!-- build:js(app) scripts/vendor.js -->
     <!-- bower:js -->
+    
     <script src="bower_components/ng-file-upload/angular-file-upload-shim.js"></script>
     <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-deckgrid/angular-deckgrid.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/ng-file-upload/angular-file-upload.js"></script>
+    
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -68,6 +75,6 @@
         <script src="scripts/services/user.js"></script>
         <script src="scripts/directives/mongooseError.js"></script>
         <script src="scripts/controllers/image.js"></script>
-        <!-- endbuild -->
+        <!-- endbuild -->        
 </body>
 </html>

@@ -1,10 +1,6 @@
 
 <p>This is the image view.</p>
-
 <div ng-show="dropSupported" class="drop-box" ng-file-drop="onFileSelect($files);" ng-file-drop-available="dropSupported=true">drop files here</div>
 <div ng-show="!dropSupported">HTML5 Drop File is not supported on this browser</div>
 
-<h1 id="grid" class="page-header">Images</h1>
-<div class="row">
-     <a ng:repeat="image in images" href="{{image.url}}"> <img src="{{image.url}}" alt="{{image.name}}" width="200" height=auto /></a>
-</div>
+<div class="deckgrid clearfix" deckgrid source="images" cardTemplate="partials/deckgrid-card.html"></div>

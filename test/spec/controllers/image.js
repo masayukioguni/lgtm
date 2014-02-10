@@ -13,18 +13,22 @@ describe('Controller: ImageCtrl', function() {
     beforeEach(inject(function(_$httpBackend_, $controller, $rootScope) {
         $httpBackend = _$httpBackend_;
         $httpBackend.expectGET('/api/images')
-            .respond([{'name':'test1'},{'name':'test2'}]);
+            .respond([{
+                'name': 'test1'
+            }, {
+                'name': 'test2'
+            }]);
         scope = $rootScope.$new();
         ImageCtrl = $controller('ImageCtrl', {
             $scope: scope
         });
     }));
 
-    it('should attach a list of Images to the scope', function() {
+    it('should attach a list of images to the scope', function() {
         expect(scope.images).toBeUndefined();
         $httpBackend.flush();
         expect(scope.images.length).toBe(2);
         expect(scope.images[0].name).toBe('test1');
-         
+
     });
 });
