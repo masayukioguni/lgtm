@@ -105,7 +105,7 @@ img {
     }
 }
 
-@media screen and (max-width: 840px) {
+@media screen and (max-width: 760) {
     .deckgrid {
         width:760px;
     }
@@ -118,7 +118,6 @@ img {
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
     .deckgrid {
-        margin:100px auto;
         width:500px;
     }
 
