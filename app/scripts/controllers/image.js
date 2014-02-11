@@ -4,6 +4,7 @@ angular.module('lgtmApp')
     .controller('ImageCtrl', function($scope, $http, $upload) {
         $http.get('/api/images').success(function(images) {
             $scope.images = images;
+            $scope.message = "ここにファイルをドロップしてね！！"
         });
 
         $scope.onFileSelect = function($files) {
@@ -30,7 +31,12 @@ angular.module('lgtmApp')
                     /* customize how data is added to formData. See #40#issuecomment-28612000 for example */
                     //formDataAppender: function(formData, key, val){} 
                 }).progress(function(evt) {
-                    console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
+                    var percent = parseInt(100.0 * evt.loaded / evt.total);
+                    $scope.message = "いまアップロード中 " + percent + "%終了";
+
+                    if (percent === 100) {
+                        $scope.message = "ここにファイルをドロップしてね！！"
+                    }
                 }).success(function(data, status, headers, config) {
                     // file is uploaded successfully
                     console.log(data);
