@@ -10,10 +10,17 @@ angular.module('lgtmApp', [
 ])
     .config(function($routeProvider, $locationProvider, $httpProvider) {
         $routeProvider
+        /*
             .when('/', {
                 templateUrl: 'partials/main',
                 controller: 'MainCtrl'
             })
+*/
+        .when('/', {
+            templateUrl: 'partials/image',
+            controller: 'ImageCtrl'
+        })
+        /*
             .when('/login', {
                 templateUrl: 'partials/login',
                 controller: 'LoginCtrl'
@@ -31,9 +38,10 @@ angular.module('lgtmApp', [
                 templateUrl: 'partials/image',
                 controller: 'ImageCtrl'
             })
-            .otherwise({
-                redirectTo: '/'
-            });
+*/
+        .otherwise({
+            redirectTo: '/'
+        });
 
         $locationProvider.html5Mode(true);
 
