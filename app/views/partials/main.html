@@ -1,20 +1,7 @@
 <div ng-include="'partials/header'"></div>
-
-<div class="jumbotron">
-  <h1>'Allo, 'Allo <span ng-show="currentUser">{{ currentUser.name }}</span>!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!</a></p>
-</div>
-
-<div class="row marketing">
-  <div ng-repeat="thing in awesomeThings">
-      <h4>{{thing.name}}</h4>
-      <p>{{thing.info}}</p>
-  </div>
-</div>
-
+ssss
+<div ng-show="dropSupported" class="drop-box" ng-file-drop="onFileSelect($files);" ng-file-drop-available="dropSupported=true">{{message}}</div>
+<div ng-show="!dropSupported">HTML5 Drop File is not supported on this browser</div>
+<div class="deckgrid clearfix" deckgrid source="images" cardTemplate="partials/deckgrid-card.html"></div>
 <div ng-include="'partials/footer'"></div>
 
