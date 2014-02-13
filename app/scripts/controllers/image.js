@@ -4,7 +4,7 @@ angular.module('lgtmApp')
     .controller('ImageCtrl', function($scope, $http, $upload) {
         $http.get('/api/images').success(function(images) {
             $scope.images = images;
-            $scope.message = "ここにファイルをドロップしてね！！"
+            $scope.message = 'ここにファイルをドロップしてね！！';
         });
 
         $scope.onFileSelect = function($files) {

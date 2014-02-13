@@ -16,10 +16,14 @@ angular.module('lgtmApp', [
                 controller: 'MainCtrl'
             })
 */
-        .when('/', {
-            templateUrl: 'partials/image',
-            controller: 'ImageCtrl'
+        .when('/:id', {
+            templateUrl: 'partials/show',
+            controller: 'ShowCtrl'
         })
+            .when('/', {
+                templateUrl: 'partials/image',
+                controller: 'ImageCtrl'
+            })
         /*
             .when('/login', {
                 templateUrl: 'partials/login',
