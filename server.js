@@ -20,13 +20,15 @@ var db = mongoose.connect(config.mongo.uri, config.mongo.options);
 
 // Bootstrap models
 var modelsPath = path.join(__dirname, 'lib/models');
-fs.readdirSync(modelsPath).forEach(function (file) {
-  require(modelsPath + '/' + file);
+fs.readdirSync(modelsPath).forEach(function(file) {
+    require(modelsPath + '/' + file);
 });
 
 // Populate empty DB with sample data
-require('./lib/config/dummydata');
-  
+if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
+    console.log('**** load dummy data ****')
+    require('./lib/config/dummydata');
+}
 // Passport Configuration
 require('./lib/config/passport')();
 
@@ -39,8 +41,8 @@ require('./lib/config/express')(app);
 require('./lib/routes')(app);
 
 // Start server
-app.listen(config.port, function () {
-  console.log('Express server listening on port %d in %s mode', config.port, app.get('env'));
+app.listen(config.port, function() {
+    console.log('Express server listening on port %d in %s mode', config.port, app.get('env'));
 });
 
 // Expose app
