@@ -5,5 +5,6 @@ angular.module('lgtmApp')
         var id = $routeParams.id;
         $http.get('/api/image/' + id).success(function(image) {
             $scope.image = image;
+            $scope.content = 'foobar';
         });
     });
