@@ -5,8 +5,8 @@
     <img src="{{image.src}}" alt="{{image.name}}"><br>
   </p>
   <p>コピペして使ってね<p>
-  <input id="lgtm-url" ng-model="content" type="text" readonly="readonly" select-on-click/>
-  <p><a class="btn btn-lg btn-danger" ng-href="#">削除</a></p>
+  <input id="lgtm-url" ng-model="content" class="form-control" type="text" readonly="readonly" select-on-click/>
+  <p><a class="btn btn-lg btn-danger" ng-click="onDelete()">削除</a></p>
 </div>
 <div ng-include="'partials/footer'"></div>
 
