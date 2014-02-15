@@ -10,16 +10,10 @@ angular.module('lgtmApp', [
 ])
     .config(function($routeProvider, $locationProvider, $httpProvider) {
         $routeProvider
-        /*
-            .when('/', {
-                templateUrl: 'partials/main',
-                controller: 'MainCtrl'
+            .when('/:id', {
+                templateUrl: 'partials/show',
+                controller: 'ShowCtrl'
             })
-*/
-        .when('/:id', {
-            templateUrl: 'partials/show',
-            controller: 'ShowCtrl'
-        })
             .when('/', {
                 templateUrl: 'partials/image',
                 controller: 'ImageCtrl'

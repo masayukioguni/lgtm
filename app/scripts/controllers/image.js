@@ -32,14 +32,13 @@ angular.module('lgtmApp')
                     //formDataAppender: function(formData, key, val){} 
                 }).progress(function(evt) {
                     var percent = parseInt(100.0 * evt.loaded / evt.total);
-                    $scope.message = "いまアップロード中 " + percent + "%終了";
+                    $scope.message = 'いまアップロード中 ' + percent + '%終了';
 
                     if (percent === 100) {
-                        $scope.message = "ここにファイルをドロップしてね！！"
+                        $scope.message = 'ここにファイルをドロップしてね！！';
                     }
                 }).success(function(data, status, headers, config) {
                     // file is uploaded successfully
-                    console.log(data);
                 });
             }
         };
