@@ -1,15 +1,19 @@
 'use strict';
 console.log("adkasmdklaskldalks");
 angular.module('lgtmApp')
-    .directive('selectOnClick', function() {
+    .directive('selectOnClick', function($timeout) {
         console.log("adkasmdklaskldalks");
         return {
             restrict: 'A',
             link: function(scope, element, attrs) {
-                element.on('click', function() {
+                // dirty hack
+                // document.readyで拾った場合,文字列が展開される前に呼ばれるため、
+                // selectが無効になる
+                var selectedText = function() {
+                    var a = $('#lgtm-url');
                     $('#lgtm-url').select();
-                    //this.select();
-                });
+                }
+                $timeout(selectedText, 500);
             }
         };
     });
