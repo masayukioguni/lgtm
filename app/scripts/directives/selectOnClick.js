@@ -10,7 +10,6 @@ angular.module('lgtmApp')
                 // document.readyで拾った場合,文字列が展開される前に呼ばれるため、
                 // selectが無効になる
                 var selectedText = function() {
-                    var a = $('#lgtm-url');
                     $('#lgtm-url').select();
                 }
                 $timeout(selectedText, 500);
