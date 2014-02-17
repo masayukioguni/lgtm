@@ -1,7 +1,6 @@
 'use strict';
-var path = require('path');
-var modulePath = path.resolve(path.join('lib', 'config', 'config'));
-var module = require(modulePath);
+
+var module = require('config/config');
 
 describe("config", function() {
     it("has parameter", function() {
