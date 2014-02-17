@@ -1,0 +1,1 @@
+jasmine-node  --runWithRequireJs --requireJsSetup node_test/config.js ./node_test/spec/* --autotest --color --verbose
