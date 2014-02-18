@@ -28,6 +28,7 @@ angular.module('lgtmApp')
                         $scope.message = 'ここにファイルをドロップしてね！！';
                     }
                 }).success(function(data, status, headers, config) {
+
                     $location.path('/');
                 });
             }
