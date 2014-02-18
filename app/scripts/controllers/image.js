@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('lgtmApp')
-    .controller('ImageCtrl', function($scope, $http, $upload) {
+    .controller('ImageCtrl', function($scope, $http, $upload, $location) {
         $http.get('/api/images').success(function(images) {
             $scope.images = images;
             $scope.message = 'ここにファイルをドロップしてね！！';
@@ -39,6 +39,7 @@ angular.module('lgtmApp')
                     }
                 }).success(function(data, status, headers, config) {
                     // file is uploaded successfully
+                    $location.path('/');
                 });
             }
         };
