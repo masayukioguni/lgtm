@@ -1,7 +1,12 @@
 'use strict';
 
 angular.module('lgtmApp')
-    .controller('ImageCtrl', function($scope, $http, $upload, $location) {
+    .controller('ImageCtrl', function($scope, $http, $upload, $location, $route) {
+        var socket = io.connect('http://localhost');
+        socket.on('update', function(images) {
+            $route.reload();
+        });
+
         $http.get('/api/images').success(function(images) {
             $scope.images = images;
             $scope.message = 'ここにファイルをドロップしてね！！';
@@ -48,11 +53,8 @@ angular.module('lgtmApp')
                     if (percent === 100) {
                         $scope.message = 'ここにファイルをドロップしてね！！';
                         $scope.infomation = '完了';
-
                     }
-                }).success(function(data, status, headers, config) {
-                    $location.path('/');
-                });
+                }).success(function(data, status, headers, config) {});
             }
         };
     });
