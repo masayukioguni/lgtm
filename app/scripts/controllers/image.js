@@ -2,7 +2,7 @@
 
 angular.module('lgtmApp')
     .controller('ImageCtrl', function($scope, $http, $upload, $location, $route) {
-        var socket = io.connect('http://localhost');
+        var socket = io.connect($location.absUrl());
         socket.on('update', function(images) {
             $route.reload();
         });
@@ -30,10 +30,6 @@ angular.module('lgtmApp')
         }
 
         $scope.onFileSelect = function($files) {
-            if (validation($files) === true) {
-                $scope.infomation = '画像フォーマットが違う、またはサイズが3M以上なのでアップロードできない';
-                return;
-            }
 
             for (var i = 0; i < $files.length; i++) {
                 var file = $files[i];
