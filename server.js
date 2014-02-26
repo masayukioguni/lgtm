@@ -3,7 +3,9 @@
 var express = require('express'),
     path = require('path'),
     fs = require('fs'),
-    mongoose = require('mongoose');
+    mongoose = require('mongoose'),
+    http = require('http'),
+    socketio = require('socket.io');
 
 /**
  * Main application file
@@ -33,15 +35,20 @@ if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
 require('./lib/config/passport')();
 
 var app = express();
+var server = http.createServer(app);
+
+// Init Socket.io server
+var socketIo = socketio.listen(server);
+app.set('socket.io.log.level', process.env.SOCKET_IO_LOG_LEVEL || 1);
 
 // Express settings
 require('./lib/config/express')(app);
 
 // Routing
-require('./lib/routes')(app);
+require('./lib/routes')(app, socketIo);
 
 // Start server
-app.listen(config.port, function() {
+server.listen(config.port, function() {
     console.log('Express server listening on port %d in %s mode', config.port, app.get('env'));
 });
 
