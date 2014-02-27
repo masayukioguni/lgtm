@@ -6,7 +6,6 @@ angular.module('lgtmApp', [
     'ngSanitize',
     'ngRoute',
     'angularFileUpload',
-    'akoenig.deckgrid'
 ])
     .config(function($routeProvider, $locationProvider, $httpProvider) {
         $routeProvider
