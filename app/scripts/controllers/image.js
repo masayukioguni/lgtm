@@ -48,7 +48,6 @@ angular.module('lgtmApp')
 
                     if (percent === 100) {
                         $scope.message = 'ここにファイルをドロップしてね！！';
-                        $scope.infomation = '完了';
                     }
                 }).success(function(data, status, headers, config) {});
             }

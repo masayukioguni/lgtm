@@ -6,5 +6,5 @@ app/bower_components
 heroku
 /views
 dist
-app/images/lgtm/*.jpg
-app/images/resize/*.jpg
+app/images/lgtm/*
+app/images/resize/*

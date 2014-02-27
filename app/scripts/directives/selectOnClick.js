@@ -1,5 +1,4 @@
 'use strict';
-console.log("adkasmdklaskldalks");
 angular.module('lgtmApp')
     .directive('selectOnClick', function($timeout) {
         console.log("adkasmdklaskldalks");

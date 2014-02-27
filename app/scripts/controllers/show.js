@@ -16,16 +16,18 @@ angular.module('lgtmApp')
             $location.path('/');
         });
         $scope.onDelete = function() {
-            $http({
-                method: 'DELETE',
-                url: '/api/image/' + id
-            }).
-            success(function(data, status, headers, config) {
-                console.log('success');
-                $location.path('/');
-            }).
-            error(function(data, status, headers, config) {
-                $location.path('/');
-            });
+            if (confirm("消すよ?")) {
+                $http({
+                    method: 'DELETE',
+                    url: '/api/image/' + id
+                }).
+                success(function(data, status, headers, config) {
+                    console.log('delete' + 'id:' + id + 'success');
+                    $location.path('/');
+                }).
+                error(function(data, status, headers, config) {
+                    console.log('delete' + 'id:' + id + 'failed');
+                });
+            }
         };
     });
