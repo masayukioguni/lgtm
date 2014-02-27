@@ -2,5 +2,14 @@
 <div ng-show="dropSupported" class="drop-box" ng-file-drop="onFileSelect($files);" ng-file-drop-available="dropSupported=true">{{message}}</div>
 <div ng-show="!dropSupported">HTML5 Drop File is not supported on this browser</div>
 <p>{{infomation}}</p>
-<div class="deckgrid clearfix" deckgrid source="images" cardTemplate="partials/deckgrid-card.html"></div>
+
+<div id="wrapper">
+  <div id="columns">
+    <div class="pin" ng-repeat="image in images">
+ 	  <img src="{{image.src}}" />
+      <p>a</a>
+    </div>
+  </div>
+</div>
+
 <div ng-include="'partials/footer'"></div>
