@@ -3,14 +3,21 @@
 angular.module('lgtmApp')
     .controller('ImageCtrl', function($scope, $http, $upload, $location, $route) {
         var socket = io.connect($location.absUrl());
-        socket.on('update', function(images) {
-            $route.reload();
+        var main_images = null;
+        socket.on('add', function(image) {
+            console.log(image);
+            main_images.unshift(image);
+            console.log(main_images);
+
+            $scope.images = main_images;
+            $scope.$apply();
         });
 
         $http.get('/api/images').success(function(images) {
-            $scope.images = images;
+            console.log(images);
+            main_images = images;
+            $scope.images = main_images;
             $scope.message = 'ここにファイルをドロップしてね！！';
-            $scope.infomation = '';
         });
 
         var validation = function(files) {
@@ -44,11 +51,6 @@ angular.module('lgtmApp')
                     file: file,
                 }).progress(function(evt) {
                     var percent = parseInt(100.0 * evt.loaded / evt.total);
-                    $scope.infomation = 'いまアップロード中 ' + percent + '%終了';
-
-                    if (percent === 100) {
-                        $scope.message = 'ここにファイルをドロップしてね！！';
-                    }
                 }).success(function(data, status, headers, config) {});
             }
         };
