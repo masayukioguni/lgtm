@@ -4,6 +4,8 @@ angular.module('lgtmApp')
     .controller('ImageCtrl', function($scope, $http, $upload, $location, $route) {
         var socket = io.connect($location.absUrl());
         var main_images = null;
+        $scope.message = 'ここにファイルをドロップしてね！！';
+
         socket.on('add', function(image) {
             console.log(image);
             main_images.unshift(image);
@@ -20,13 +22,6 @@ angular.module('lgtmApp')
                 $scope.images = main_images;
                 $scope.$apply();
             });
-        });
-
-        $http.get('/api/images').success(function(images) {
-            console.log(images);
-            main_images = images;
-            $scope.images = main_images;
-            $scope.message = 'ここにファイルをドロップしてね！！';
         });
 
         var validation = function(files) {
