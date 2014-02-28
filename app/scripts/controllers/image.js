@@ -13,6 +13,15 @@ angular.module('lgtmApp')
             $scope.$apply();
         });
 
+        socket.on('update', function(image) {
+            $http.get('/api/images').success(function(images) {
+                console.log(images);
+                main_images = images;
+                $scope.images = main_images;
+                $scope.$apply();
+            });
+        });
+
         $http.get('/api/images').success(function(images) {
             console.log(images);
             main_images = images;
