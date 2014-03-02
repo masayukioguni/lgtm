@@ -7,20 +7,17 @@ angular.module('lgtmApp')
         $scope.message = 'ここにファイルをドロップしてね！！';
 
         socket.on('add', function(image) {
-            console.log(image);
             main_images.unshift(image);
-            console.log(main_images);
-
-            $scope.images = main_images;
-            $scope.$apply();
+            $scope.$apply(function() {
+                $scope.images = main_images;
+            });
         });
 
         socket.on('update', function(image) {
+            console.log("websocket update");
             $http.get('/api/images').success(function(images) {
-                console.log(images);
                 main_images = images;
                 $scope.images = main_images;
-                $scope.$apply();
             });
         });
 
