@@ -6,6 +6,12 @@ angular.module('lgtmApp')
         var main_images = null;
         $scope.message = 'ここにファイルをドロップしてね！！';
 
+
+        $http.get('/api/images').success(function(images) {
+            main_images = images
+            $scope.images = main_images;
+        });
+
         socket.on('add', function(image) {
             main_images.unshift(image);
             $scope.$apply(function() {
