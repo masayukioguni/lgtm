@@ -1,11 +1,11 @@
 'use strict';
 
 var express = require('express'),
-    path = require('path'),
-    fs = require('fs'),
-    mongoose = require('mongoose'),
-    http = require('http'),
-    socketio = require('socket.io');
+  path = require('path'),
+  fs = require('fs'),
+  mongoose = require('mongoose'),
+  http = require('http'),
+  socketio = require('socket.io');
 
 /**
  * Main application file
@@ -23,13 +23,13 @@ var db = mongoose.connect(config.mongo.uri, config.mongo.options);
 // Bootstrap models
 var modelsPath = path.join(__dirname, 'lib/models');
 fs.readdirSync(modelsPath).forEach(function(file) {
-    require(modelsPath + '/' + file);
+  require(modelsPath + '/' + file);
 });
 
 // Populate empty DB with sample data
 if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
-    console.log('**** load dummy data ****')
-    require('./lib/config/dummydata');
+  console.log('**** load dummy data ****')
+  require('./lib/config/dummydata');
 }
 // Passport Configuration
 require('./lib/config/passport')();
@@ -49,7 +49,7 @@ require('./lib/routes')(app, socketIo);
 
 // Start server
 server.listen(config.port, function() {
-    console.log('Express server listening on port %d in %s mode', config.port, app.get('env'));
+  console.log('Express server listening on port %d in %s mode', config.port, app.get('env'));
 });
 
 // Expose app
